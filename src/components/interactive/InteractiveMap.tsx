@@ -77,7 +77,7 @@ function ThemeAwareTiles() {
 }
 
 export default function InteractiveMap({
-  places: placeIds,
+  places: placeIds = [],
   locale,
   height = '400px',
 }: InteractiveMapProps) {

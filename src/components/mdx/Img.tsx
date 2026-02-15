@@ -7,11 +7,13 @@ interface ImgProps {
   height?: number
 }
 
+// Uses <span> instead of <figure> because MDX wraps images in <p>,
+// and <figure> is not valid inside <p> (only phrasing content allowed).
 export default function Img({ src, alt = '', width, height }: ImgProps) {
   if (!src) return null
 
   return (
-    <figure className="my-8">
+    <span className="block my-8">
       <Image
         src={src}
         alt={alt}
@@ -20,10 +22,10 @@ export default function Img({ src, alt = '', width, height }: ImgProps) {
         className="rounded-lg shadow-md w-full h-auto"
       />
       {alt && (
-        <figcaption className="mt-2 text-center text-sm text-muted italic">
+        <span className="block mt-2 text-center text-sm text-muted italic">
           {alt}
-        </figcaption>
+        </span>
       )}
-    </figure>
+    </span>
   )
 }

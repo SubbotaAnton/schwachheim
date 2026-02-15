@@ -12,6 +12,7 @@ interface TableOfContentsProps {
   className?: string
 }
 
+// Read headings from DOM — ids are set by H2/H3 server components, no DOM mutation here
 function getHeadingsSnapshot(): TocEntry[] {
   const article = document.querySelector('article')
   if (!article) return []
@@ -20,30 +21,25 @@ function getHeadingsSnapshot(): TocEntry[] {
   const entries: TocEntry[] = []
 
   elements.forEach((el) => {
-    if (!el.id) {
-      el.id = el.textContent
-        ?.toLowerCase()
-        .replace(/[^a-zа-яё0-9\s-]/g, '')
-        .replace(/\s+/g, '-')
-        .slice(0, 60) ?? ''
+    if (el.id) {
+      entries.push({
+        id: el.id,
+        text: el.textContent ?? '',
+        level: el.tagName === 'H2' ? 2 : 3,
+      })
     }
-    entries.push({
-      id: el.id,
-      text: el.textContent ?? '',
-      level: el.tagName === 'H2' ? 2 : 3,
-    })
   })
 
   return entries
 }
 
+const EMPTY_HEADINGS: TocEntry[] = []
 function getHeadingsServerSnapshot(): TocEntry[] {
-  return []
+  return EMPTY_HEADINGS
 }
 
-// Headings don't change after initial render — no-op subscribe
+// Headings don't change after initial render — trigger once after mount
 function subscribeToHeadings(callback: () => void): () => void {
-  // Trigger once after mount to read DOM
   const id = requestAnimationFrame(callback)
   return () => cancelAnimationFrame(id)
 }
