@@ -40,6 +40,8 @@
 
 ## Images in Articles
 
-- Article images: `public/images/articles/{slug}/`.
+- MVP: article images in `public/images/articles/{slug}/`. Future: migrate to Cloudflare R2.
+- Prefer WebP format for optimized file size.
 - Use `next/image` via the MDX `img` override component.
+- Always provide meaningful `alt` text for accessibility.
 - Historical document scans: provide both a thumbnail and a full-resolution version.

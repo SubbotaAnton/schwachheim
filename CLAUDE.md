@@ -29,7 +29,8 @@ Interactive longread articles, family tree, maps, glossary — designed to impre
 | Maps | Leaflet + react-leaflet | Dynamic import with `ssr: false`. Free OSM tiles. |
 | Popovers | @floating-ui/react | PlaceCard positioning. |
 | Fonts | Playfair Display + Lora + Inter | Via `next/font/google`. Always include `cyrillic` subset. |
-| Media | Cloudflare R2 | S3-compatible. Images served via CF CDN. |
+| Content utils | gray-matter, clsx | Frontmatter parsing, conditional classes. |
+| Media | `public/` (MVP), Cloudflare R2 (future) | MVP: local images. Future: S3-compatible CDN. |
 | Hosting | Vercel | Auto-deploy from GitHub. |
 
 ## Architecture
@@ -39,18 +40,22 @@ src/
 ├── app/[locale]/                    # Locale-scoped routes
 │   ├── layout.tsx                   # NextIntlClientProvider, fonts
 │   ├── page.tsx                     # Landing
-│   └── articles/[slug]/page.tsx     # Article (SSG)
+│   ├── not-found.tsx                # Localized 404
+│   └── articles/[slug]/
+│       ├── page.tsx                 # Article (SSG)
+│       ├── loading.tsx              # Article skeleton
+│       └── error.tsx                # Article error boundary
 ├── components/
 │   ├── ui/                          # Primitives: Button, Card, ThemeToggle
 │   ├── layout/                      # Header, Footer, LanguageSwitcher
 │   ├── article/                     # ArticleLayout, TableOfContents, ReadingProgress
 │   ├── interactive/                 # PlaceCard, FamilyTree, InteractiveMap, GlossaryTerm
-│   └── mdx/                         # MDX overrides for h2, h3, blockquote, hr, img
+│   └── mdx/                         # MDX overrides: h2, h3, blockquote, hr (SectionDivider), img
 ├── content/articles/{en,de,ru}/     # MDX files per locale
 ├── data/                            # TypeScript data: people, places, events, glossary
 ├── i18n/                            # routing.ts, request.ts, navigation.ts
 ├── lib/                             # mdx.ts, fonts.ts, utils.ts
-├── types/                           # Person, Place, Event, Article
+├── types/                           # Person, Place, HistoricalEvent, GlossaryEntry, Article
 └── hooks/                           # useActiveSection, useTheme
 messages/{en,de,ru}.json             # UI strings only (nav, buttons, labels)
 middleware.ts                        # next-intl locale detection
@@ -78,7 +83,7 @@ middleware.ts                        # next-intl locale detection
 - All theme values defined via `@theme` in `globals.css`. No JS config file.
 - Color tokens: `--color-background`, `--color-foreground`, `--color-surface`, `--color-accent`, `--color-muted`, `--color-border`.
 - Font tokens: `--font-heading`, `--font-body`, `--font-ui`.
-- Dark mode via `@media (prefers-color-scheme: dark)` + `data-theme` attribute on `<html>`.
+- Dark mode via `@media (prefers-color-scheme: dark)` + `data-theme` attribute on `<html>` + `localStorage` for user preference persistence.
 - Never use arbitrary values `[#hex]` when a token exists. Create a token instead.
 
 ### Components
@@ -101,7 +106,7 @@ middleware.ts                        # next-intl locale detection
 - Data files are TypeScript, not JSON — for type safety and IDE support.
 - Every entity has a stable `id: string` used for cross-referencing.
 - Localized text fields use `Record<'en' | 'de' | 'ru', string>`.
-- Helper functions in `src/lib/data.ts`: `getPersonById`, `getPlaceById`, `getChildrenOf`.
+- Helper functions in `src/lib/data.ts`: `getPersonById`, `getPlaceById`, `getChildrenOf`, `getEventsByPersonId`, `getGlossaryTerm`.
 
 ### Styling Guidelines
 
