@@ -1,77 +1,130 @@
-# CLAUDE.md — Schwachheim Project Guidelines
+# CLAUDE.md — Schwachheim
 
-## Project Overview
+## Project
 
-Schwachheim is a multilingual family history website dedicated to the Schwachheim surname.
-The goal is to create a visually stunning, interactive platform that presents genealogical
-research in a way that's accessible to newcomers yet rich enough to impress any genealogist.
+Multilingual family history website for the Schwachheim surname.
+Interactive longread articles, family tree, maps, glossary — designed to impress any genealogist.
 
 - **Domain:** schwachheim.com (planned)
 - **Languages:** English, German, Russian
-- **Content:** articles, family tree, historical documents, photos, maps, glossary
-- **Audience:** family members worldwide, potential namesakes, genealogy enthusiasts
-
-## Tech Stack
-
-- **Framework:** Next.js 15 (App Router, SSG)
-- **Language:** TypeScript (strict mode)
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Content:** MDX files with custom React components
-- **i18n:** next-intl
-- **Family tree:** GEDCOM → JSON at build time, rendered client-side as React/SVG
-- **Media storage:** Cloudflare R2
-- **Hosting:** Vercel
-
-## Content Architecture
-
-Articles are written in MDX and can embed interactive components:
-
-```mdx
-<PlaceCard id="hattorf" />                  — popup card for a place
-<FamilyTree root="johann" depth={2} />      — family tree slice
-<DocImage src="birth-record-1842" />         — zoomable document scan
-<GlossaryTerm term="kirchenbuch" />          — inline glossary term
-```
-
-Content is organized by locale (`/content/en/`, `/content/de/`, `/content/ru/`).
-Each article has frontmatter with metadata (title, date, tags, related articles).
-
-## Family Tree Data
-
-- Source format: GEDCOM
-- Parsed to JSON at build time (typed interfaces for Person, Family, etc.)
-- Tree component shows a slice: root person + spouse + N generations down
-- Collapsed branches show expand indicators, not full subtrees
-- Target: max ~30 people visible at once
+- **Audience:** family members, namesakes, genealogy enthusiasts
+- **Plan:** [docs/PLAN.md](docs/PLAN.md)
 
 ## Communication
 
-- Communicate with the user in Russian (unless asked otherwise).
-- All code, comments, commit messages, PR descriptions, and documentation must be in English.
+- Speak to the user in **Russian**.
+- All code, comments, commits, PRs, docs — **English only**.
 
-## Philosophy
+## Tech Stack
 
-- Think before you act. Understand the problem fully before writing code.
-- Prefer simple, readable solutions over clever ones.
-- Every change should have a clear purpose. Don't touch what you don't need to.
-- Leave the codebase better than you found it — but only in the areas you're working on.
-- Don't be afraid of ambitious tech — but always weigh it against maintenance cost.
+| Layer | Technology | Notes |
+|---|---|---|
+| Framework | Next.js 15, App Router | SSG via `generateStaticParams`. `params` is a `Promise` in Next.js 15. |
+| Language | TypeScript | `strict: true`. No `any`. Prefer `unknown` + narrowing. |
+| Package manager | pnpm | Lockfile committed. |
+| Styling | Tailwind CSS v4 | No `tailwind.config`. Theme via `@theme` in CSS. |
+| Animations | Framer Motion | Scroll-driven animations, page transitions, `AnimatePresence`. |
+| Content | MDX via `next-mdx-remote/rsc` | Articles as `.mdx` files, not page routes. Loaded by locale + slug. |
+| i18n | next-intl | `localePrefix: 'as-needed'`. UI strings in `messages/`. Content in `src/content/`. |
+| Maps | Leaflet + react-leaflet | Dynamic import with `ssr: false`. Free OSM tiles. |
+| Popovers | @floating-ui/react | PlaceCard positioning. |
+| Fonts | Playfair Display + Lora + Inter | Via `next/font/google`. Always include `cyrillic` subset. |
+| Media | Cloudflare R2 | S3-compatible. Images served via CF CDN. |
+| Hosting | Vercel | Auto-deploy from GitHub. |
 
-## Code Quality
+## Architecture
 
-- Write code that is easy to read, test, and delete.
-- Keep functions small and focused on a single responsibility.
-- Name things clearly — a good name eliminates the need for a comment.
-- Avoid premature abstraction. Duplicate code is better than the wrong abstraction.
+```
+src/
+├── app/[locale]/                    # Locale-scoped routes
+│   ├── layout.tsx                   # NextIntlClientProvider, fonts
+│   ├── page.tsx                     # Landing
+│   └── articles/[slug]/page.tsx     # Article (SSG)
+├── components/
+│   ├── ui/                          # Primitives: Button, Card, ThemeToggle
+│   ├── layout/                      # Header, Footer, LanguageSwitcher
+│   ├── article/                     # ArticleLayout, TableOfContents, ReadingProgress
+│   ├── interactive/                 # PlaceCard, FamilyTree, InteractiveMap, GlossaryTerm
+│   └── mdx/                         # MDX overrides for h2, h3, blockquote, hr, img
+├── content/articles/{en,de,ru}/     # MDX files per locale
+├── data/                            # TypeScript data: people, places, events, glossary
+├── i18n/                            # routing.ts, request.ts, navigation.ts
+├── lib/                             # mdx.ts, fonts.ts, utils.ts
+├── types/                           # Person, Place, Event, Article
+└── hooks/                           # useActiveSection, useTheme
+messages/{en,de,ru}.json             # UI strings only (nav, buttons, labels)
+middleware.ts                        # next-intl locale detection
+```
 
-## Working Process
+## Conventions
 
-- Read existing code before modifying it. Understand context first.
-- Make the smallest change that solves the problem.
-- Test your changes. If tests exist — run them. If they don't — consider adding them.
-- Commit logically grouped changes, not everything at once.
+### Next.js App Router
+
+- Every `page.tsx` and `layout.tsx` under `[locale]` must call `setRequestLocale(locale)`.
+- `params` in page/layout components is `Promise<{ locale: string; ... }>` — always `await` it.
+- Use `generateStaticParams` on every dynamic route. Return all locale × slug combinations.
+- Server Components by default. Add `"use client"` only when needed (event handlers, hooks, browser APIs).
+- Colocate loading.tsx / error.tsx with the route that needs them.
+
+### TypeScript
+
+- Strict mode, no exceptions. No `any`, no `@ts-ignore`, no `as` unless truly necessary.
+- Export interfaces from `src/types/`. Import them everywhere.
+- Data files (`src/data/`) export typed `const` arrays with `as const satisfies` where appropriate.
+- Prefer `interface` for object shapes, `type` for unions and computed types.
+
+### Tailwind CSS v4
+
+- All theme values defined via `@theme` in `globals.css`. No JS config file.
+- Color tokens: `--color-background`, `--color-foreground`, `--color-surface`, `--color-accent`, `--color-muted`, `--color-border`.
+- Font tokens: `--font-heading`, `--font-body`, `--font-ui`.
+- Dark mode via `@media (prefers-color-scheme: dark)` + `data-theme` attribute on `<html>`.
+- Never use arbitrary values `[#hex]` when a token exists. Create a token instead.
+
+### Components
+
+- One component per file. File name = component name in PascalCase.
+- Props interface defined in the same file, named `{Component}Props`.
+- Client components: only for interactivity. Keep them small, push logic to server where possible.
+- Interactive components (PlaceCard, FamilyTree, Map) are lazy-loaded via `next/dynamic`.
+
+### MDX Content
+
+- Articles live in `src/content/articles/{locale}/{slug}.mdx`.
+- Frontmatter: `title`, `description` (required), `author`, `publishedAt`, `updatedAt` (optional).
+- Custom components available in MDX: `PlaceCard`, `FamilyTree`, `InteractiveMap`, `GlossaryTerm`.
+- MDX structure (headings, component placement) must be identical across all locales.
+- UI strings (`messages/*.json`) are for interface chrome. Article text is in MDX files.
+
+### Data
+
+- Data files are TypeScript, not JSON — for type safety and IDE support.
+- Every entity has a stable `id: string` used for cross-referencing.
+- Localized text fields use `Record<'en' | 'de' | 'ru', string>`.
+- Helper functions in `src/lib/data.ts`: `getPersonById`, `getPlaceById`, `getChildrenOf`.
+
+### Styling Guidelines
+
+- Warm, book-like aesthetic. Light: cream `#FAF7F2`. Dark: warm near-black `#0D0B08`.
+- Accent: gold `#C4A35A`. Used for links, highlights, progress bar, map markers.
+- Serif typography. Headings: Playfair Display. Body: Lora. UI elements: Inter.
+- Article body: `1.125rem`, `line-height: 1.8`. Generous whitespace. Drop caps on first paragraph.
+
+## Commands
+
+```bash
+pnpm dev          # Start dev server
+pnpm build        # Production build (SSG)
+pnpm lint         # ESLint
+pnpm type-check   # tsc --noEmit
+```
 
 ## Rules
 
-Additional rules are located in `.claude/rules/` directory.
+Detailed rules in `.claude/rules/`:
+- `01-thinking.md` — Problem-solving approach
+- `02-nextjs.md` — Next.js App Router patterns
+- `03-typescript.md` — TypeScript conventions
+- `04-components.md` — React component patterns
+- `05-content.md` — MDX and i18n rules
+- `06-git.md` — Git workflow
