@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "title": "Schwachheim — Familiengeschichte",
+    "description": "Interaktive Familiengeschichte des Namens Schwachheim"
+  },
+  "header": {
+    "home": "Startseite",
+    "articles": "Artikel",
+    "about": "Über uns"
+  },
+  "footer": {
+    "copyright": "© {year} Schwachheim Familiengeschichte",
+    "builtWith": "Mit Liebe zur Genealogie erstellt"
+  },
+  "theme": {
+    "light": "Heller Modus",
+    "dark": "Dunkler Modus"
+  },
+  "language": {
+    "en": "English",
+    "de": "Deutsch",
+    "ru": "Русский",
+    "switchTo": "Sprache wechseln"
+  },
+  "article": {
+    "readingTime": "{minutes} Min. Lesezeit",
+    "publishedOn": "Veröffentlicht am {date}",
+    "tableOfContents": "Inhaltsverzeichnis",
+    "backToArticles": "Zurück zu Artikeln"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht.",
+    "backHome": "Zur Startseite"
+  },
+  "landing": {
+    "familyHistory": "Familiengeschichte · Seit 1569",
+    "subtitle": "Eine interaktive Reise durch die jahrhundertealte Geschichte einer Familie, die in einer Mühle am Fuße des Harzes begann",
+    "cta": "Die Geschichte lesen",
+    "storyHeading": "Von der Dorfmühle zum Freiherrentitel",
+    "storyExcerpt": "1569, in einem kleinen Dorf namens Hattorf am Harz, begründete ein Müller namens Jacob Schwachheim eine Dynastie. Seine zehn Kinder sollten die Schrecken des Dreißigjährigen Krieges erleben, außergewöhnliche Bildung erlangen und den Grundstein für einen der bemerkenswertesten sozialen Aufstiege in der Geschichte Niedersachsens legen.",
+    "readMore": "Die ganze Geschichte lesen",
+    "featuredPlaces": "Wichtige Orte"
+  }
+}

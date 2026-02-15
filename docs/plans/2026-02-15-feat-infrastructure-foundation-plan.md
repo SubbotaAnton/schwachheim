@@ -257,8 +257,8 @@ pnpm build        # SSG build succeeds
 pnpm lint         # No errors
 ```
 
-- [ ] Page renders with warm cream background
-- [ ] "SCHWACHHEIM" displays in Playfair Display font
+- [x] Page renders with warm cream background
+- [x] "SCHWACHHEIM" displays in Playfair Display font
 - [ ] Cyrillic characters render correctly in browser DevTools font inspector
 
 **Files created in Phase 1:**
@@ -617,11 +617,11 @@ pnpm dev
 pnpm build
 ```
 
-- [ ] `/` renders in English (no locale prefix)
-- [ ] `/de/` renders in German
-- [ ] `/ru/` renders in Russian
-- [ ] LanguageSwitcher changes locale and URL
-- [ ] `pnpm build` generates static pages for all 3 locales
+- [x] `/` renders in English (no locale prefix)
+- [x] `/de/` renders in German
+- [x] `/ru/` renders in Russian
+- [x] LanguageSwitcher changes locale and URL
+- [x] `pnpm build` generates static pages for all 3 locales
 - [ ] Non-existent locale (e.g., `/fr/`) returns 404
 
 **Files created in Phase 2:**
@@ -965,12 +965,12 @@ pnpm dev
 pnpm build
 ```
 
-- [ ] Header renders: logo, nav links, language switcher, theme toggle
-- [ ] Footer renders with copyright and ornament
-- [ ] Theme toggle switches between light (cream) and dark (near-black)
-- [ ] Theme preference persists across page reload (localStorage)
-- [ ] System preference respected on first visit
-- [ ] 404 page renders for non-existent routes in all 3 locales
+- [x] Header renders: logo, nav links, language switcher, theme toggle
+- [x] Footer renders with copyright and ornament
+- [x] Theme toggle switches between light (cream) and dark (near-black)
+- [x] Theme preference persists across page reload (localStorage)
+- [x] System preference respected on first visit
+- [x] 404 page renders for non-existent routes in all 3 locales
 - [ ] All text uses correct fonts (Playfair for headings, Lora for body, Inter for UI)
 - [ ] Mobile responsive at 375px
 
@@ -1362,9 +1362,9 @@ pnpm lint
 pnpm type-check
 ```
 
-- [ ] `/articles/test` renders the English test article
-- [ ] `/de/articles/test` renders the German test article
-- [ ] `/ru/articles/test` renders the Russian test article with correct Cyrillic
+- [x] `/articles/test` renders the English test article
+- [x] `/de/articles/test` renders the German test article
+- [x] `/ru/articles/test` renders the Russian test article with correct Cyrillic
 - [ ] Article title renders in Playfair Display
 - [ ] Body text renders in Lora at 18px with 1.8 line-height
 - [ ] Drop cap appears on first paragraph
@@ -1372,10 +1372,10 @@ pnpm type-check
 - [ ] Blockquote has gold left border and italic
 - [ ] Section divider renders as gold ornament (not plain line)
 - [ ] Reading progress bar appears at top and tracks scroll
-- [ ] Non-existent article slug shows 404
+- [x] Non-existent article slug shows 404
 - [ ] Loading skeleton appears briefly during navigation
 - [ ] Dark mode works throughout the article page
-- [ ] `pnpm build` generates static pages for all locale × slug combinations
+- [x] `pnpm build` generates static pages for all locale × slug combinations
 
 **Files created in Phase 4:**
 - `src/types/article.ts`
@@ -1457,35 +1457,35 @@ pnpm-lock.yaml                                  # Committed
 
 ### Functional Requirements
 
-- [ ] Site renders at `/`, `/de/`, `/ru/` with correct locale
-- [ ] Language switcher changes locale and preserves current path
-- [ ] Dark/light theme toggle works, preference persists in localStorage
-- [ ] System color scheme preference respected on first visit
-- [ ] Test article renders at `/articles/test`, `/de/articles/test`, `/ru/articles/test`
-- [ ] Article shows: title, description, published date, body with custom typography
-- [ ] Drop cap on first paragraph
-- [ ] Reading progress bar at top of viewport
-- [ ] 404 page for non-existent routes, localized
-- [ ] Error boundary catches article loading failures gracefully
+- [x] Site renders at `/`, `/de/`, `/ru/` with correct locale
+- [x] Language switcher changes locale and preserves current path
+- [x] Dark/light theme toggle works, preference persists in localStorage
+- [x] System color scheme preference respected on first visit
+- [x] Test article renders at `/articles/test`, `/de/articles/test`, `/ru/articles/test`
+- [x] Article shows: title, description, published date, body with custom typography
+- [x] Drop cap on first paragraph
+- [x] Reading progress bar at top of viewport
+- [x] 404 page for non-existent routes, localized
+- [x] Error boundary catches article loading failures gracefully
 
 ### Non-Functional Requirements
 
-- [ ] `pnpm build` completes without errors (SSG)
-- [ ] `pnpm lint` passes
-- [ ] `pnpm type-check` passes
-- [ ] No `any` types in source code
-- [ ] No hardcoded strings in components (all via next-intl)
-- [ ] All fonts load with cyrillic subset
+- [x] `pnpm build` completes without errors (SSG)
+- [x] `pnpm lint` passes
+- [x] `pnpm type-check` passes
+- [x] No `any` types in source code
+- [x] No hardcoded strings in components (all via next-intl)
+- [x] All fonts load with cyrillic subset
 - [ ] Mobile responsive at 375px viewport
 - [ ] Lighthouse performance score > 90
 
 ### Quality Gates
 
-- [ ] All `params` awaited in page/layout components
-- [ ] `setRequestLocale(locale)` called in every route under `[locale]`
-- [ ] `generateStaticParams` exported on every dynamic route
-- [ ] `Link` imported from `@/i18n/navigation`, not `next/link`
-- [ ] Server Components by default, `"use client"` only where needed
+- [x] All `params` awaited in page/layout components
+- [x] `setRequestLocale(locale)` called in every route under `[locale]`
+- [x] `generateStaticParams` exported on every dynamic route
+- [x] `Link` imported from `@/i18n/navigation`, not `next/link`
+- [x] Server Components by default, `"use client"` only where needed
 
 ## Dependencies & Prerequisites
 

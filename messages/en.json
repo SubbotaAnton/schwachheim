@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "title": "Schwachheim — Family History",
+    "description": "Interactive family history of the Schwachheim surname"
+  },
+  "header": {
+    "home": "Home",
+    "articles": "Articles",
+    "about": "About"
+  },
+  "footer": {
+    "copyright": "© {year} Schwachheim Family History",
+    "builtWith": "Built with love for genealogy"
+  },
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode"
+  },
+  "language": {
+    "en": "English",
+    "de": "Deutsch",
+    "ru": "Русский",
+    "switchTo": "Switch language"
+  },
+  "article": {
+    "readingTime": "{minutes} min read",
+    "publishedOn": "Published {date}",
+    "tableOfContents": "Table of Contents",
+    "backToArticles": "Back to Articles"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist.",
+    "backHome": "Back to Home"
+  },
+  "landing": {
+    "familyHistory": "Family History · Since 1569",
+    "subtitle": "An interactive journey through the centuries-long history of a family that began in a mill at the foot of the Harz mountains",
+    "cta": "Read the Story",
+    "storyHeading": "From a Village Mill to Baron's Title",
+    "storyExcerpt": "In 1569, in a small village called Hattorf am Harz, a miller named Jacob Schwachheim began a dynasty. His ten children would face the horrors of the Thirty Years' War, achieve extraordinary educations, and lay the foundations for one of the most remarkable social ascents in Lower Saxony's history.",
+    "readMore": "Read the full story",
+    "featuredPlaces": "Key Places"
+  }
+}
