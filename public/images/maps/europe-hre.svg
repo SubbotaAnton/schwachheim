@@ -1,31 +1,265 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
-  <!-- Background: parchment -->
-  <rect width="800" height="600" fill="#F5EDD8"/>
-  <!-- Subtle grid lines -->
-  <g stroke="#E0D5BB" stroke-width="0.5" opacity="0.4">
-    <line x1="0" y1="150" x2="800" y2="150"/>
-    <line x1="0" y1="300" x2="800" y2="300"/>
-    <line x1="0" y1="450" x2="800" y2="450"/>
-    <line x1="200" y1="0" x2="200" y2="600"/>
-    <line x1="400" y1="0" x2="400" y2="600"/>
-    <line x1="600" y1="0" x2="600" y2="600"/>
-  </g>
-  <!-- Water bodies -->
-  <ellipse cx="150" cy="180" rx="120" ry="60" fill="#D4CBB8" opacity="0.5"/>
-  <path d="M700 0 Q680 100 720 200 Q700 300 730 400" stroke="#C4B99E" stroke-width="2" fill="none" opacity="0.5"/>
-  <!-- Europe outline (simplified) -->
-  <path d="M100 80 L200 60 L350 50 L450 70 L550 45 L650 80 L700 120 L720 200 L700 280 L650 350 L600 380 L550 420 L480 460 L400 500 L300 520 L200 480 L150 400 L100 320 L80 240 L90 160 Z" fill="none" stroke="#8B7B65" stroke-width="1.5" opacity="0.6"/>
-  <!-- HRE territory (highlighted) -->
-  <path d="M320 100 L420 90 L480 110 L520 150 L540 220 L530 300 L500 360 L450 400 L380 420 L320 400 L280 350 L260 280 L270 200 L290 150 Z" fill="#C4A35A" fill-opacity="0.25" stroke="#C4A35A" stroke-width="2.5"/>
+  <!-- Water background -->
+  <rect width="800" height="600" fill="#E4DFD2"/>
+  <!-- Parchment texture overlay -->
+  <rect width="800" height="600" fill="#F5EDD8" opacity="0.3"/>
+
+  <!-- MAINLAND EUROPE -->
+  <path d="
+    M 16,503
+    Q 17,522 19,538
+    Q 32,550 65,549
+    Q 78,556 95,548
+    Q 125,536 159,526
+    Q 166,504 170,487
+    Q 195,458 216,447
+    Q 224,432 232,420
+    Q 252,412 273,408
+    Q 290,402 306,399
+    Q 322,390 334,385
+    Q 348,394 359,404
+    Q 378,422 395,439
+    Q 416,452 430,457
+    Q 448,478 457,505
+    Q 462,498 472,488
+    Q 482,476 496,472
+    Q 508,468 522,466
+    Q 536,474 545,488
+    Q 554,510 562,530
+    Q 574,542 590,535
+    Q 604,520 615,508
+    Q 632,488 648,476
+    Q 668,465 690,468
+    L 780,460
+    L 780,60
+    Q 660,78 620,95
+    Q 596,112 580,128
+    Q 562,148 549,155
+    Q 528,168 506,178
+    Q 466,183 434,186
+    Q 410,185 391,183
+    Q 378,186 366,189
+    Q 358,184 354,180
+    Q 350,176 344,170
+    Q 350,156 358,141
+    Q 362,122 364,110
+    Q 356,116 338,118
+    Q 324,132 320,148
+    Q 320,160 325,172
+    Q 326,180 319,192
+    Q 304,200 274,205
+    Q 256,214 241,232
+    Q 232,240 221,244
+    Q 216,248 211,249
+    Q 196,264 177,281
+    Q 156,292 142,294
+    Q 114,300 97,302
+    Q 108,318 124,328
+    Q 142,332 151,338
+    Q 156,350 158,362
+    Q 162,378 166,388
+    Q 158,398 151,404
+    Q 138,408 126,408
+    Q 98,406 76,404
+    Q 42,412 12,416
+    Q 18,436 25,451
+    Q 18,478 16,503
+    Z
+  " fill="#F5EDD8" stroke="#C4B99E" stroke-width="1"/>
+
+  <!-- GREAT BRITAIN -->
+  <path d="
+    M 78,92
+    Q 92,96 108,120
+    Q 120,140 135,152
+    Q 152,164 168,180
+    Q 188,200 200,218
+    Q 204,232 200,244
+    Q 192,254 177,260
+    Q 148,270 120,268
+    Q 100,264 88,258
+    Q 80,248 82,234
+    Q 90,220 92,210
+    Q 88,196 82,186
+    Q 74,168 72,152
+    Q 68,132 72,115
+    Q 75,100 78,92
+    Z
+  " fill="#F5EDD8" stroke="#C4B99E" stroke-width="1"/>
+
+  <!-- IRELAND -->
+  <path d="
+    M 22,168
+    Q 36,156 56,154
+    Q 68,158 72,170
+    Q 76,188 72,204
+    Q 68,220 58,232
+    Q 42,240 26,238
+    Q 12,228 8,214
+    Q 6,196 10,180
+    Q 14,172 22,168
+    Z
+  " fill="#F5EDD8" stroke="#C4B99E" stroke-width="1"/>
+
+  <!-- SCANDINAVIAN PENINSULA -->
+  <path d="
+    M 258,0
+    Q 262,30 268,54
+    Q 272,72 265,103
+    Q 278,92 302,78
+    Q 330,65 358,62
+    Q 370,72 378,100
+    Q 384,130 390,148
+    Q 398,156 407,155
+    Q 418,148 432,136
+    Q 458,114 480,92
+    Q 500,68 515,45
+    Q 525,25 538,0
+    Z
+  " fill="#F5EDD8" stroke="#C4B99E" stroke-width="1"/>
+
+  <!-- SICILY -->
+  <path d="
+    M 418,520 Q 434,514 448,518 Q 446,530 434,536 Q 420,532 418,520 Z
+  " fill="#F5EDD8" stroke="#C4B99E" stroke-width="0.8"/>
+
+  <!-- SARDINIA -->
+  <path d="
+    M 332,458 Q 342,450 348,460 Q 346,476 338,484 Q 328,478 328,466 Q 329,460 332,458 Z
+  " fill="#F5EDD8" stroke="#C4B99E" stroke-width="0.8"/>
+
+  <!-- CORSICA -->
+  <path d="
+    M 330,424 Q 338,418 342,426 Q 340,440 334,446 Q 326,440 328,430 Q 328,426 330,424 Z
+  " fill="#F5EDD8" stroke="#C4B99E" stroke-width="0.8"/>
+
+  <!-- ADRIATIC SEA (water channel between Italy and Balkans) -->
+  <path d="
+    M 416,360
+    Q 425,362 432,370
+    Q 445,392 458,420
+    Q 470,448 482,468
+    L 522,466
+    Q 510,448 496,435
+    Q 476,415 462,400
+    Q 445,382 430,368
+    Q 422,358 416,360
+    Z
+  " fill="#E4DFD2" stroke="none"/>
+
+  <!-- AEGEAN SEA dots (between Greece and Turkey) -->
+  <circle cx="600" cy="508" r="2" fill="#D4CFC2" opacity="0.5"/>
+  <circle cx="612" cy="515" r="1.5" fill="#D4CFC2" opacity="0.5"/>
+  <circle cx="595" cy="522" r="1.5" fill="#D4CFC2" opacity="0.5"/>
+
+  <!-- Sea labels -->
+  <text x="48" y="310" font-family="Georgia, serif" font-size="11" fill="#9E9686" font-style="italic" transform="rotate(-75 48 310)" letter-spacing="3">ATLANTIC</text>
+  <text x="340" y="560" font-family="Georgia, serif" font-size="10" fill="#9E9686" font-style="italic" letter-spacing="4">MEDITERRANEAN SEA</text>
+  <text x="265" y="168" font-family="Georgia, serif" font-size="9" fill="#9E9686" font-style="italic" letter-spacing="2">North Sea</text>
+  <text x="430" y="148" font-family="Georgia, serif" font-size="9" fill="#9E9686" font-style="italic" letter-spacing="2">Baltic Sea</text>
+
+  <!-- HRE TERRITORY (highlighted) -->
+  <path d="
+    M 252,222
+    Q 266,210 278,202
+    Q 310,192 332,190
+    Q 370,186 400,185
+    Q 430,186 450,190
+    Q 465,198 475,212
+    Q 488,238 494,260
+    Q 500,282 504,300
+    Q 510,318 506,335
+    Q 498,348 486,355
+    Q 468,365 448,370
+    Q 420,376 395,378
+    Q 365,378 338,374
+    Q 312,368 295,358
+    Q 272,346 262,332
+    Q 254,312 250,292
+    Q 248,268 248,252
+    Q 250,236 252,222
+    Z
+  " fill="#C4A35A" fill-opacity="0.2" stroke="#C4A35A" stroke-width="2" stroke-dasharray="none"/>
+
+  <!-- HRE internal decoration: thin inner border -->
+  <path d="
+    M 252,222
+    Q 266,210 278,202
+    Q 310,192 332,190
+    Q 370,186 400,185
+    Q 430,186 450,190
+    Q 465,198 475,212
+    Q 488,238 494,260
+    Q 500,282 504,300
+    Q 510,318 506,335
+    Q 498,348 486,355
+    Q 468,365 448,370
+    Q 420,376 395,378
+    Q 365,378 338,374
+    Q 312,368 295,358
+    Q 272,346 262,332
+    Q 254,312 250,292
+    Q 248,268 248,252
+    Q 250,236 252,222
+    Z
+  " fill="none" stroke="#C4A35A" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.5" transform="scale(0.97) translate(12, 8)"/>
+
+  <!-- Region labels (outside HRE) -->
+  <text x="160" y="370" font-family="Georgia, serif" font-size="13" fill="#8B7B65" font-style="italic" letter-spacing="6">FRANCE</text>
+  <text x="530" y="240" font-family="Georgia, serif" font-size="11" fill="#8B7B65" font-style="italic" letter-spacing="3">POLAND</text>
+  <text x="548" y="320" font-family="Georgia, serif" font-size="10" fill="#8B7B65" font-style="italic" letter-spacing="2">HUNGARY</text>
+  <text x="380" y="445" font-family="Georgia, serif" font-size="10" fill="#8B7B65" font-style="italic" letter-spacing="4">ITALY</text>
+  <text x="140" y="480" font-family="Georgia, serif" font-size="10" fill="#8B7B65" font-style="italic" letter-spacing="3">SPAIN</text>
+  <text x="120" y="210" font-family="Georgia, serif" font-size="9" fill="#8B7B65" font-style="italic">ENGLAND</text>
+  <text x="385" y="84" font-family="Georgia, serif" font-size="9" fill="#8B7B65" font-style="italic" letter-spacing="2">SWEDEN</text>
+  <text x="290" y="38" font-family="Georgia, serif" font-size="9" fill="#8B7B65" font-style="italic" letter-spacing="1">NORWAY</text>
+  <text x="594" y="180" font-family="Georgia, serif" font-size="9" fill="#8B7B65" font-style="italic">LIVONIA</text>
+
   <!-- HRE label -->
-  <text x="400" y="250" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#8B6914" font-style="italic">Heiliges Römisches Reich</text>
+  <text x="370" y="270" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#8B6914" font-weight="bold" letter-spacing="2">HOLY ROMAN</text>
+  <text x="370" y="286" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#8B6914" font-weight="bold" letter-spacing="2">EMPIRE</text>
+
+  <!-- Key cities -->
+  <circle cx="365" cy="222" r="3" fill="#C4A35A"/>
+  <text x="375" y="218" font-family="Georgia, serif" font-size="9" fill="#5C4A1E">Braunschweig</text>
+
+  <circle cx="177" cy="295" r="2" fill="#8B7B65"/>
+  <text x="183" y="298" font-family="Georgia, serif" font-size="8" fill="#8B7B65">Paris</text>
+
+  <circle cx="392" cy="304" r="2" fill="#8B7B65"/>
+  <text x="398" y="307" font-family="Georgia, serif" font-size="8" fill="#8B7B65">Wien</text>
+
+  <circle cx="432" cy="268" r="2" fill="#8B7B65"/>
+  <text x="438" y="271" font-family="Georgia, serif" font-size="8" fill="#8B7B65">Prag</text>
+
+  <circle cx="395" cy="440" r="2" fill="#8B7B65"/>
+  <text x="401" y="443" font-family="Georgia, serif" font-size="8" fill="#8B7B65">Roma</text>
+
+  <!-- Major rivers (subtle) -->
+  <!-- Rhine -->
+  <path d="M 282,210 Q 285,260 290,300 Q 300,340 315,375" stroke="#B8C4D4" stroke-width="1.2" fill="none" opacity="0.4"/>
+  <!-- Elbe -->
+  <path d="M 370,192 Q 372,230 378,270 Q 385,310 395,360" stroke="#B8C4D4" stroke-width="1" fill="none" opacity="0.35"/>
+  <!-- Danube -->
+  <path d="M 310,350 Q 380,340 430,310 Q 480,300 530,290 Q 580,288 640,300" stroke="#B8C4D4" stroke-width="1" fill="none" opacity="0.35"/>
+
   <!-- Compass rose -->
-  <g transform="translate(720, 520)">
-    <circle r="25" fill="none" stroke="#8B7B65" stroke-width="1"/>
-    <line x1="0" y1="-20" x2="0" y2="20" stroke="#8B7B65" stroke-width="1.5"/>
-    <line x1="-20" y1="0" x2="20" y2="0" stroke="#8B7B65" stroke-width="1.5"/>
-    <text y="-28" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#8B7B65">N</text>
+  <g transform="translate(732, 540)">
+    <circle r="22" fill="none" stroke="#B8A88A" stroke-width="0.8"/>
+    <line x1="0" y1="-18" x2="0" y2="18" stroke="#B8A88A" stroke-width="1"/>
+    <line x1="-18" y1="0" x2="18" y2="0" stroke="#B8A88A" stroke-width="1"/>
+    <line x1="-12" y1="-12" x2="12" y2="12" stroke="#B8A88A" stroke-width="0.5" opacity="0.5"/>
+    <line x1="12" y1="-12" x2="-12" y2="12" stroke="#B8A88A" stroke-width="0.5" opacity="0.5"/>
+    <polygon points="0,-18 -3,-8 3,-8" fill="#8B6914" opacity="0.7"/>
+    <text y="-26" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#8B7B65">N</text>
   </g>
-  <!-- Scale hint -->
-  <text x="40" y="580" font-family="Georgia, serif" font-size="11" fill="#8B7B65" opacity="0.6">Europa, ca. 1600</text>
+
+  <!-- Date label -->
+  <text x="30" y="582" font-family="Georgia, serif" font-size="10" fill="#B8A88A" font-style="italic">Europa, ca. 1600</text>
+
+  <!-- Decorative corner elements -->
+  <path d="M 5,5 L 40,5 M 5,5 L 5,40" stroke="#C4B99E" stroke-width="1" opacity="0.4"/>
+  <path d="M 795,5 L 760,5 M 795,5 L 795,40" stroke="#C4B99E" stroke-width="1" opacity="0.4"/>
+  <path d="M 5,595 L 40,595 M 5,595 L 5,560" stroke="#C4B99E" stroke-width="1" opacity="0.4"/>
+  <path d="M 795,595 L 760,595 M 795,595 L 795,560" stroke="#C4B99E" stroke-width="1" opacity="0.4"/>
 </svg>
