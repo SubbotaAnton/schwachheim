@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <!-- Background: parchment -->
+  <rect width="800" height="600" fill="#F5EDD8"/>
+  <!-- Subtle grid -->
+  <g stroke="#E0D5BB" stroke-width="0.5" opacity="0.3">
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+  </g>
+  <!-- Harz mountain range (background) -->
+  <g opacity="0.3">
+    <path d="M100 250 L150 200 L200 240 L250 180 L300 230 L350 170 L400 220 L450 160 L500 210 L550 170 L600 220 L650 190 L700 240" fill="none" stroke="#8B7B65" stroke-width="2"/>
+    <path d="M100 250 L150 200 L200 240 L250 180 L300 230 L350 170 L400 220 L450 160 L500 210 L550 170 L600 220 L650 190 L700 240 L700 280 L100 280 Z" fill="#D4C9A8" opacity="0.3"/>
+  </g>
+  <!-- Rivers -->
+  <path d="M350 200 Q340 300 360 400 Q370 480 350 560" stroke="#B8C4D4" stroke-width="2" fill="none" opacity="0.6"/>
+  <text x="365" y="440" font-family="Georgia, serif" font-size="9" fill="#7A8EA0" font-style="italic" transform="rotate(-10 365 440)">Sieber</text>
+  <path d="M550 180 Q540 280 530 380 Q520 480 540 560" stroke="#B8C4D4" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- Grubenhagen territory (highlighted) -->
+  <path d="M200 150 L400 120 L550 160 L600 250 L580 370 L520 450 L400 490 L280 470 L200 400 L180 300 L190 220 Z" fill="#C4A35A" fill-opacity="0.25" stroke="#C4A35A" stroke-width="2.5"/>
+  <!-- Towns -->
+  <g>
+    <!-- Herzberg (capital) -->
+    <circle cx="400" cy="320" r="6" fill="#C4A35A" stroke="#8B6914" stroke-width="1.5"/>
+    <text x="420" y="315" font-family="Georgia, serif" font-size="14" fill="#5C4A1E" font-weight="bold">Herzberg</text>
+    <text x="420" y="332" font-family="Georgia, serif" font-size="10" fill="#8B7B65" font-style="italic">Residenzstadt</text>
+    <!-- Osterode -->
+    <circle cx="320" cy="250" r="4" fill="#8B6914"/>
+    <text x="335" y="245" font-family="Georgia, serif" font-size="12" fill="#5C4A1E">Osterode</text>
+    <!-- Hattorf -->
+    <circle cx="360" cy="380" r="4" fill="#8B6914"/>
+    <text x="375" y="375" font-family="Georgia, serif" font-size="12" fill="#5C4A1E">Hattorf</text>
+    <!-- Pöhlde -->
+    <circle cx="430" cy="400" r="3" fill="#8B7B65"/>
+    <text x="445" y="395" font-family="Georgia, serif" font-size="10" fill="#8B7B65">Pöhlde</text>
+  </g>
+  <!-- Label -->
+  <text x="400" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#8B6914" font-style="italic">Fürstentum Grubenhagen</text>
+  <!-- Castle symbol for Herzberg -->
+  <g transform="translate(392, 295)">
+    <rect x="0" y="4" width="16" height="10" fill="none" stroke="#8B6914" stroke-width="1"/>
+    <rect x="2" y="0" width="4" height="6" fill="none" stroke="#8B6914" stroke-width="1"/>
+    <rect x="10" y="0" width="4" height="6" fill="none" stroke="#8B6914" stroke-width="1"/>
+  </g>
+  <!-- Compass -->
+  <g transform="translate(720, 520)">
+    <circle r="25" fill="none" stroke="#8B7B65" stroke-width="1"/>
+    <line x1="0" y1="-20" x2="0" y2="20" stroke="#8B7B65" stroke-width="1.5"/>
+    <line x1="-20" y1="0" x2="20" y2="0" stroke="#8B7B65" stroke-width="1.5"/>
+    <text y="-28" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#8B7B65">N</text>
+  </g>
+  <text x="40" y="580" font-family="Georgia, serif" font-size="11" fill="#8B7B65" opacity="0.6">Harzregion, ca. 1600</text>
+</svg>

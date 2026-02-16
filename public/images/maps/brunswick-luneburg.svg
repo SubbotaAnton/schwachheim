@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <!-- Background: parchment -->
+  <rect width="800" height="600" fill="#F5EDD8"/>
+  <!-- Subtle grid -->
+  <g stroke="#E0D5BB" stroke-width="0.5" opacity="0.3">
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+  </g>
+  <!-- Surrounding territories (muted) -->
+  <path d="M50 50 L250 30 L300 80 L280 200 L200 250 L100 220 L50 150 Z" fill="#E8DFC8" stroke="#B8A88A" stroke-width="1" opacity="0.5"/>
+  <path d="M550 50 L750 40 L780 200 L720 300 L600 280 L540 180 Z" fill="#E8DFC8" stroke="#B8A88A" stroke-width="1" opacity="0.5"/>
+  <!-- Rivers -->
+  <path d="M200 100 Q250 200 220 350 Q200 450 240 550" stroke="#B8C4D4" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M500 150 Q480 250 510 350 Q530 450 500 550" stroke="#B8C4D4" stroke-width="2" fill="none" opacity="0.5"/>
+  <!-- Brunswick-Lüneburg territory (highlighted) -->
+  <path d="M280 80 L420 60 L540 100 L580 180 L560 300 L520 400 L440 460 L340 470 L260 420 L220 340 L230 240 L250 160 Z" fill="#C4A35A" fill-opacity="0.25" stroke="#C4A35A" stroke-width="2.5"/>
+  <!-- Harz mountains hint -->
+  <g opacity="0.4">
+    <path d="M320 380 L340 350 L360 380 L380 345 L400 380 L420 340 L440 380" fill="none" stroke="#8B7B65" stroke-width="1.5"/>
+    <text x="380" y="400" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#8B7B65" font-style="italic">Harz</text>
+  </g>
+  <!-- Cities -->
+  <circle cx="400" cy="200" r="4" fill="#8B6914"/>
+  <text x="415" y="195" font-family="Georgia, serif" font-size="12" fill="#5C4A1E">Braunschweig</text>
+  <circle cx="340" cy="280" r="3" fill="#8B6914"/>
+  <text x="355" y="275" font-family="Georgia, serif" font-size="11" fill="#5C4A1E">Hannover</text>
+  <circle cx="480" cy="150" r="3" fill="#8B6914"/>
+  <text x="495" y="145" font-family="Georgia, serif" font-size="11" fill="#5C4A1E">Lüneburg</text>
+  <!-- Label -->
+  <text x="400" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#8B6914" font-style="italic">Braunschweig-Lüneburg</text>
+  <!-- Compass -->
+  <g transform="translate(720, 520)">
+    <circle r="25" fill="none" stroke="#8B7B65" stroke-width="1"/>
+    <line x1="0" y1="-20" x2="0" y2="20" stroke="#8B7B65" stroke-width="1.5"/>
+    <line x1="-20" y1="0" x2="20" y2="0" stroke="#8B7B65" stroke-width="1.5"/>
+    <text y="-28" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#8B7B65">N</text>
+  </g>
+  <text x="40" y="580" font-family="Georgia, serif" font-size="11" fill="#8B7B65" opacity="0.6">Norddeutschland, ca. 1600</text>
+</svg>

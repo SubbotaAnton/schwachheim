@@ -17,6 +17,7 @@ import GlossaryTerm from '@/components/interactive/GlossaryTerm'
 import PlaceCard from '@/components/interactive/PlaceCard'
 import FamilyTree from '@/components/interactive/FamilyTree'
 import InteractiveMapWrapper from '@/components/interactive/InteractiveMapWrapper'
+import GeographicZoomWrapper from '@/components/interactive/GeographicZoomWrapper'
 
 const ARTICLES_DIR = path.join(process.cwd(), 'src', 'content', 'articles')
 
@@ -41,6 +42,9 @@ function createMdxComponents(locale: Locale) {
     ),
     InteractiveMap: (props: { places: string[]; height?: string }) => (
       <InteractiveMapWrapper {...props} locale={locale} />
+    ),
+    GeographicZoom: () => (
+      <GeographicZoomWrapper locale={locale} />
     ),
   }
 }

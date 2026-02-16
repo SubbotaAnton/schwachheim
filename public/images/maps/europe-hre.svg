@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <!-- Background: parchment -->
+  <rect width="800" height="600" fill="#F5EDD8"/>
+  <!-- Subtle grid lines -->
+  <g stroke="#E0D5BB" stroke-width="0.5" opacity="0.4">
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+  </g>
+  <!-- Water bodies -->
+  <ellipse cx="150" cy="180" rx="120" ry="60" fill="#D4CBB8" opacity="0.5"/>
+  <path d="M700 0 Q680 100 720 200 Q700 300 730 400" stroke="#C4B99E" stroke-width="2" fill="none" opacity="0.5"/>
+  <!-- Europe outline (simplified) -->
+  <path d="M100 80 L200 60 L350 50 L450 70 L550 45 L650 80 L700 120 L720 200 L700 280 L650 350 L600 380 L550 420 L480 460 L400 500 L300 520 L200 480 L150 400 L100 320 L80 240 L90 160 Z" fill="none" stroke="#8B7B65" stroke-width="1.5" opacity="0.6"/>
+  <!-- HRE territory (highlighted) -->
+  <path d="M320 100 L420 90 L480 110 L520 150 L540 220 L530 300 L500 360 L450 400 L380 420 L320 400 L280 350 L260 280 L270 200 L290 150 Z" fill="#C4A35A" fill-opacity="0.25" stroke="#C4A35A" stroke-width="2.5"/>
+  <!-- HRE label -->
+  <text x="400" y="250" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#8B6914" font-style="italic">Heiliges Römisches Reich</text>
+  <!-- Compass rose -->
+  <g transform="translate(720, 520)">
+    <circle r="25" fill="none" stroke="#8B7B65" stroke-width="1"/>
+    <line x1="0" y1="-20" x2="0" y2="20" stroke="#8B7B65" stroke-width="1.5"/>
+    <line x1="-20" y1="0" x2="20" y2="0" stroke="#8B7B65" stroke-width="1.5"/>
+    <text y="-28" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#8B7B65">N</text>
+  </g>
+  <!-- Scale hint -->
+  <text x="40" y="580" font-family="Georgia, serif" font-size="11" fill="#8B7B65" opacity="0.6">Europa, ca. 1600</text>
+</svg>
